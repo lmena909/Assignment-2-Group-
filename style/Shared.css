@@ -1,331 +1,268 @@
-/*Improvement from Assignment 1*/
-/* Moved all these repeated styles from all CSS files into shared.cc*/
-
-/* style/Shared.css */
-
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --dark-color: #333;
-    --light-color: #f4f4f4;
-    --text-color: #333;
-    --font-family: Arial, sans-serif;
-    --max-content-width: 990px;
-    --side-background-color: #e9ecef;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: white;
-    font-size: 16px;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
-}
-
-.header {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--light-color);
-}
-
-.header h1 {
-    color: #0056b3;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 1.8em;
-}
-
-.attribution-text {
-    font-size: 0.85em;
-    color: #666;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-.navbar {
-    background-color: var(--dark-color);
-    color: white;
-    padding: 0.5em 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.navbar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
-.navbar a {
-    color: white;
-    padding: 10px 0;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.navbar a:last-child {
-    border-bottom: none;
-}
-
-.navbar a:hover, .navbar a.active {
-    background-color: var(--secondary-color);
-    color: white;
-}
-
-.main {
-    padding: 20px;
-    background-color: white;
-}
-
-form {
-    padding: 20px;
-    background-color: var(--light-color);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-form label {
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input:required {
-    border-left: 5px solid var(--primary-color);
-}
-
-label.required::after {
-    content: " *";
-    color: red;
-    margin-left: 5px;
-}
-
-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
-    align-self: flex-start;
-}
-
-button:hover {
-    background-color: var(--dark-color);
-}
-
-.footer {
-    background-color: var(--dark-color);
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-}
-
-.announcement {
-    background-color: #ffe0b2;
-    border: 1px solid #ffcc80;
-    padding: 15px;
-    margin-top: 20px;
-    text-align: center;
-    border-radius: 5px;
-}
-.announcement .highlight {
-    font-weight: bold;
-    color: #e65100;
-}
-
-figure {
-    margin: 20px 0;
-    text-align: center;
-}
-.caption-text {
-    font-size: 0.9em;
-    color: var(--text-color);
-    margin-top: 5px;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.side {
-    flex: 100%;
-    background-color: var(--light-color);
-    padding: 20px;
-}
-
-.main-content-area {
-    flex: 100%;
-    padding: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-th {
-    background-color: #f2f2f2;
-}
-
-@media screen and (max-width: 590px) {
-    body {
-        font-size: 0.9em;
-    }
-    .header h1 {
-        font-size: 1.6em;
-    }
-    .navbar a {
-        padding: 12px 16px;
-    }
-    .main, .main-content-area {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    table {
-        min-width: 400px;
-    }
-    .row {
-        flex-direction: column;
-        padding: 10px;
-    }
-    .row .side, .row .main {
-        width: 100%;
-        padding: 15px 10px;
-    }
-}
-
-@media screen and (min-width: 591px) and (max-width: 989px) {
-    .row {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 20px;
-        flex-direction: row;
-    }
-    .navbar {
-        flex-direction: row;
-        justify-content: center;
-    }
-    .navbar ul {
-        display: flex;
-        justify-content: center;
-        width: auto;
-    }
-    .navbar a {
-        padding: 0 15px;
-        font-size: 0.9em;
-        border-bottom: none;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .navbar a:last-child {
-        border-right: none;
-    }
-    .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-    .header img {
-        margin-bottom: 10px;
-    }
-}
-
-@media screen and (min-width: 990px) {
-    body {
-        background-color: var(--side-background-color);
-    }
-    .container {
-        max-width: var(--max-content-width);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .header h1 {
-        font-size: 2.2em;
-    }
-    .navbar {
-        flex-direction: row;
-        justify-content: center;
-        padding: 0;
-    }
-    .navbar ul {
-        display: flex;
-        justify-content: center;
-        width: auto;
-    }
-    .navbar a {
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-        border-bottom: none;
-        padding: 0.8em 1.5em;
-        font-size: 1em;
-    }
-    .navbar a:last-child {
-        border-right: none;
-    }
-    .row {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        align-items: flex-start;
-        padding: 20px;
-    }
-    .side {
-        flex: 1;
-        min-width: 250px;
-        background-color: var(--light-color);
-        padding: 15px;
-        border-radius: 5px;
-    }
-    .main-content-area {
-        flex: 3;
-        min-width: 600px;
-        padding: 15px;
-    }
-    .main table, .main-content-area table {
-        display: table;
-        overflow-x: visible;
-        min-width: auto;
-    }
+/*Improvement from Assignment 1*/ 
+/* Moved all these repeated styles from all CSS files into shared.cc*/ 
+ 
+/* Basic page styles */ 
+ 
+:root { 
+    --primary-color: #007bff; 
+    --secondary-color: #6c757d; 
+    --dark-color: #333; 
+    --light-color: #f4f4f4; 
+    --text-color: #333; 
+    --font-family: Arial, sans-serif; 
+    --max-content-width: 990px; /* For large screen centering */ 
+    --side-background-color: #e9ecef; /* A light grey for the sides */ 
+ 
+} 
+ 
+/* Basic page styles */ 
+body { 
+    font-family: var(--font-family); 
+    margin: 0; 
+    padding: 0; 
+    line-height: 1.6; 
+    color: var(--text-color); 
+    background-color: white; /* Default background for smaller screens */ 
+} 
+ 
+ 
+/* Container for centering content on large screens (assuming HTML has <div 
+class="container">) */ 
+.container { 
+    width: 100%; 
+    margin: 0 auto; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+} 
+ 
+/* Navigation Bar */ 
+.navbar { 
+    background-color: var(--dark-color); 
+    color: white; 
+    padding: 1em 0; 
+    text-align: center; 
+} 
+ 
+.navbar ul { 
+    list-style-type: none;  
+    padding: 0;   
+    margin: 0;   
+  } 
+ 
+.navbar a { 
+    color: white; 
+    padding: 0 15px; 
+    text-decoration: none; 
+    display: inline-block; 
+} 
+ 
+.navbar a:hover { 
+    background-color: var(--secondary-color); 
+} 
+ 
+.row { 
+    display: flex; 
+    flex-wrap: wrap; 
+} 
+ 
+.main { 
+    flex: 70%; 
+    padding: 20px; 
+} 
+ 
+.side { 
+    flex: 30%; 
+    background-color: var(--light-color); 
+    padding: 20px; 
+} 
+ 
+/* Footer */ 
+.footer { 
+    background-color: var(--dark-color); 
+    color: white; 
+    text-align: center; 
+    padding: 1em 0; 
+    position: relative; 
+    bottom: 0; 
+    width: 100%; 
+} 
+ 
+.header { 
+    text-align: center; 
+    padding: 20px 0; 
+} 
+ 
+.header img { 
+    margin: 0 auto;  
+    display: block; 
+} 
+ 
+.navbar { 
+    background-color: var(--dark-color); 
+    color: white; 
+    padding: 1em 0; 
+    text-align: center;  
+} 
+ 
+ 
+/* Common form styling */ 
+/* The Assignment 1 feedback stated: "Mandatory fields are not visually distinguishable."  */ 
+form { 
+    padding: 20px; 
+    background-color: var(--light-color); 
+    border-radius: 5px; 
+} 
+input[type="text"], 
+input[type="email"], 
+textarea { 
+    width: 100%; 
+    padding: 8px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ddd; 
+    box-sizing: border-box; 
+} 
+ 
+input:required { 
+    border-left: 5px solid var(--primary-color);  
+} 
+ 
+label.required::after { 
+    content: " *"; 
+    color: red; 
+    margin-left: 5px; 
+} 
+  
+ 
+button { 
+    background-color: var(--primary-color); 
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+} 
+button:hover { 
+    background-color: var(--dark-color); 
+} 
+ 
+/*  The Assignment 1 feedback noted: "The images may be a bit large." */ 
+img { 
+    max-width: 100%; /* Ensures image doesn't overflow its parent container */ 
+    height: auto;     
+    display: block;   
+} 
+ 
+/* The feedback noted: "No pseudo element selector." */ 
+h1::after, 
+h2::after { 
+    content: ""; /* Required for pseudo-elements */ 
+    display: block; 
+    width: 50px; 
+    height: 3px; 
+    background-color: var(--primary-color); 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+} 
+ 
+ 
+/* Media Queries for Responsive Design */ 
+/* For Assignment 2 *. 
+ 
+/* Small Devices (up to 590px) */ 
+@media screen and (max-width: 590px) { 
+    .row { 
+        flex-direction: column; /* Stacks main and side content vertically */ 
+    } 
+ 
+    .main, .side { 
+        flex: 100%; /* Each takes full width */ 
+    } 
+ 
+    /* Vertical Navigation */ 
+    .navbar { 
+        padding: 0.5em 0; /* Adjust padding */ 
+    } 
+    .navbar a { 
+        display: block; /* Each link takes full width */ 
+        padding: 10px 0; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator */ 
+    } 
+    .navbar a:last-child { 
+        border-bottom: none; /* No separator for the last item */ 
+    } 
+} 
+ 
+/* Medium Devices*/ 
+@media screen and (min-width:590px) and (max-width:789px){ 
+ 
+    .row { 
+        display:grid; 
+        grid-template-columns:1fr 1fr; 
+        gap: 20px; 
+        grid-template-rows: auto auto; 
+    } 
+     
+  .main, .side { 
+    grid-column: span 1; 
+   } 
+ 
+    .navbar a { 
+        padding: 0 15px; 
+        font-size: 0.9em 
+    } 
+ 
+    .header { 
+        display: flex; 
+        justify-content: space-between;  
+        align-items: center; 
+        padding: 20px; 
+        text-align: left; 
+      } 
+    .header img { 
+        margin: 0; 
+    } 
+ 
+    .navbar { 
+        margin-left: auto;  
+        text-align: right;   
+        padding: 0; 
+      } 
+} 
+ 
+ 
+ 
+/* Large Devices (990px and wider) */ 
+/* For Assignment 2 */ 
+@media screen and (min-width: 991px) {   /* Use 991px to start after 990px breakpoint */ 
+    .container { 
+        max-width: 790px;   /* Fixed width for content */ 
+        margin: 0 auto; /* Center the container */ 
+        background-color: white; /* Ensure content background is white over colored body */ 
+    } 
+ 
+    body { 
+        background-color: var(--side-background-color); /* Plain color for the sides */ 
+    } 
+ 
+    .header { 
+        max-width: 790px; 
+        margin: 0 auto; 
+        padding: 20px 0; 
+    } 
+ 
+    .header img { 
+        margin: 0; 
+    } 
+ 
+    .navbar { 
+        margin-left: auto;  
+        text-align: right;   
+        padding: 0; 
+      } 
+ 
+ 
+      .navbar { 
+        margin-left: auto;  
+text-align: right; 
+padding: 0; 
+} 
 }
