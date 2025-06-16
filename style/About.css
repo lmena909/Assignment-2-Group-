@@ -38,3 +38,7 @@ tr:hover {
 .side strong {
   color: var(--primary-color);
 }
+
+#scheduling-check {
+  color: black !important;
+}
